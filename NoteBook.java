@@ -5,7 +5,7 @@ public class NoteBook {
         Map<Integer, Integer> m1 = new HashMap<>(); // ОЗУ, ЖД
         Map<String, String> m2 = new HashMap<>(); // Операционная система, цвет
         Map<Map<Integer, Integer>, Map<String, String>> laptops = new HashMap<>();
-        String[] criteries = new String[] {"ОЗУ", "Объём ЖД", "Операционная система", "Цвет", "поиск"};
+        String[] criteries = new String[] {"ОЗУ", "Объём ЖД", "Операционная система", "Цвет", "Поиск", "Закрыть программму"};
 
         getItem(criteries);
     }
@@ -16,11 +16,11 @@ public class NoteBook {
         Scanner scanner = new Scanner(System.in);
         int num = 1;
         for (String item: criteries) {
-            System.out.print(num  + " " + item + ":" + "\n");
+            System.out.print(num  + " " + item + "\n");
             num ++;
         }
         int index = scanner.nextInt();
-        if (index < criteries.length ) {
+        if (index > criteries.length) {
             switch (index) {
                 case 1:
                     System.out.println("Введите размер ОЗУ: ");
@@ -32,14 +32,16 @@ public class NoteBook {
                     break;
                 case 3:
                     System.out.println("Введите операционную систему: ");
-                    String operatingSystem = scanner.nextLine();
+                    String operatingSystem = scanner.next();
                     break;
                 case 4:
                     System.out.println("Введите цвет: ");
-                    String colour = scanner.nextLine();
+                    String colour = scanner.next();
                     break;
                 case 5:
                     break;
+                case 6:
+                    System.out.println("Программа успешно закрыта!");
                 default:
                     System.out.println("Такого пункта нет!");
                     getItem(criteries);
