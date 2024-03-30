@@ -5,20 +5,23 @@ public class NoteBook {
         Map<Integer, Integer> m1 = new HashMap<>(); // ОЗУ, ЖД
         Map<String, String> m2 = new HashMap<>(); // Операционная система, цвет
         Map<Map<Integer, Integer>, Map<String, String>> laptops = new HashMap<>();
+        String[] criteries = new String[] {"ОЗУ", "Объём ЖД", "Операционная система", "Цвет", "поиск"};
+
+        getItem(criteries);
     }
 
 
-    static void getItem() {
+    static void getItem(String[] criteries) {
         System.out.println("Выберите один из пунктов: ");
-        String[] criteries = new String[] {"ОЗУ", "Объём ЖД", "Операционная система", "Цвет", "поиск"};
         Scanner scanner = new Scanner(System.in);
         int num = 1;
         for (String item: criteries) {
-            System.out.print(num + item + ":");
+            System.out.print(num  + " " + item + ":" + "\n");
             num ++;
         }
-        while (scanner.nextInt() < criteries.length ) {
-            switch (scanner.nextInt()) {
+        int index = scanner.nextInt();
+        if (index < criteries.length ) {
+            switch (index) {
                 case 1:
                     System.out.println("Введите размер ОЗУ: ");
                     Integer RAM = scanner.nextInt();
@@ -39,7 +42,7 @@ public class NoteBook {
                     break;
                 default:
                     System.out.println("Такого пункта нет!");
-                    getItem();
+                    getItem(criteries);
             }
         }
     }
