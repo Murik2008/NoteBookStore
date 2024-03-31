@@ -2,14 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoteBook {
-    private final List<Object> noteBook;
+    private List<Object> noteBook;
 
     public NoteBook() {
         noteBook = new ArrayList<>();
     }
 
-    public void add(Object itemObject) {
-        noteBook.add(itemObject);
+    public boolean add(Object itemObject) {
+        if (!noteBook.contains(itemObject)) {
+            noteBook.add(itemObject);
+            return true; 
+        }
+        return false;
     }
 
     public void printNoteBook() {
